@@ -2,8 +2,59 @@
 
 int main(){
     char matriz[20][80];
-    //monta_5(matriz, 100);
-    //exibe_matriz(matriz);
-    gif_agua(matriz);
+    int numero_de_figuras, selecao, end=1;
+    while (end){
+    printf("PROGRAMA GERADOR DE OBRA DE ARTE:\n=================================\nEscolha o tipo de figura basica a ser usada para criar a obra:\n1 - asterisco simples.\n2 - simbolo de soma com asteriscos.\n3 - letra X com asteriscos.\n4 - figuras aleatorias\n5 - tracos simples\n6 - corujas\n7 - 'GIF' de agua\n");
+    printf("Digite o tipo de figura basica desejada: ");
+    scanf("%d", &selecao);
+    printf("Digite a quantidade de figuras (menor ou igual a zero para aleatorio): ");
+    scanf("%d", &numero_de_figuras);
+    if(numero_de_figuras<=0){
+        numero_de_figuras = rand()%100;
+    }
+    else if(numero_de_figuras>100){
+        numero_de_figuras = 100;
+    }
+    switch (selecao){
+        case 1:
+            system("clear");
+            monta_1(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        
+        case 2:
+            system("clear");
+            monta_2(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        case 3:
+            system("clear");
+            monta_3(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        case 4:
+            system("clear");
+            monta_4(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        case 5:
+            system("clear");
+            monta_5(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        case 6:
+            system("clear");
+            monta_6(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        case 7:
+            system("clear");
+            gif_agua(matriz);
+            exibe_agua(matriz);
+            break;
+        }
+    printf("Deseja criar mais alguma obra? [S = 1 / N = 0] >>> ");
+    scanf("%d", &end);
+    }
     return 0;
 }

@@ -119,7 +119,7 @@ void monta_4(char M[20][80], int quantidade){
     int aux, randi, randj, k;
     inicia_matriz(M);
     for(k=0; k<quantidade; k++){
-        aux = 1+rand()%3;
+        aux = 1+rand()%5;
         switch (aux){
             case 1:
                 insere_1(M);
@@ -129,6 +129,12 @@ void monta_4(char M[20][80], int quantidade){
                 break;
             case 3:
                 insere_3(M);
+                break;
+            case 4:
+                insere_5(M);
+                break;
+            case 5:
+                insere_6(M);
                 break;
         }
     }
@@ -166,7 +172,7 @@ void gif_agua(char M[20][80]){
     for(frames = 0; frames<30; frames++){
         system("sleep 0.5");
         inicia_matriz(M);
-        for(k=0; k<150; k++){
+        for(k=0; k<100; k++){
             insere_5(M);
         }
         exibe_agua(M);
@@ -174,41 +180,59 @@ void gif_agua(char M[20][80]){
     }
     system("clear");
 }
-/*void monta_5(char M[20][80], int quantidade){
+void monta_6(char M[20][80], int quantidade){
     int k;
     inicia_matriz(M);
     for(k=0; k<quantidade; k++){
-        insere_5(M, quantidade);
+        insere_6(M);
     }
     
 }
 
-void insere_5(char M[20][80], int quantidade){
-    int randi, randj;
+void insere_6(char M[20][80]){
+    int randi, randj, encheu = 0;
     srand((unsigned)time(NULL));
     while (1){
+        encheu++;
         randi = ((rand())%19)+1;
         randj = ((rand())%79)+1;
 
         if((M[randi][randj] == ' ') && (M[randi][randj-1] == ' ') && (M[randi][randj-2] == ' ') && (M[randi][randj+1] == ' ') && (M[randi][randj+2] == ' ') 
-           && (M[randi-1][randj] == ' ') && (M[randi-1][randj-1] == ' ') && (M[randi-1][randj+1] == ' ') && (M[randi-1][randj+2] == ' ') 
-           && (M[randi+1][randj-1] == ' ') && (M[randi+1][randj+1] == ' ') && (M[randi+1][randj+2] == ' ')){
+           && (M[randi-1][randj] == ' ') && (M[randi-1][randj-1] == ' ') && (M[randi-1][randj-2] == ' ') && (M[randi-1][randj+1] == ' ') && (M[randi-1][randj+2] == ' ') 
+           && (M[randi+1][randj] == ' ') && (M[randi+1][randj-1] == ' ') && (M[randi+1][randj-2] == ' ') && (M[randi+1][randj+1] == ' ') && (M[randi+1][randj+2] == ' ')
+           && (M[randi+2][randj] == ' ') && (M[randi+2][randj-1] == ' ') && (M[randi+2][randj-2] == ' ') && (M[randi+2][randj+1] == ' ') && (M[randi+2][randj+2] == ' ') && (M[randi+2][randj+3] == ' ')){
 
-            M[randi][randj] = '▄';
-            M[randi][randj-1] = '█';
-            M[randi][randj-2] = '▐';
-            M[randi][randj+1] = '▄';
-            M[randi][randj+2] = '▌';
-            M[randi-1][randj] = '▀';
-            M[randi-1][randj-1] = '▐';
-            M[randi-1][randj+1] = '▀';
-            M[randi-1][randj+2] = '▌';
-            M[randi+1][randj-1] = '█';
-            M[randi+1][randj+1] = '▐';
-            M[randi+1][randj+2] = '▌';
-
+            M[randi][randj] = '.';
+            M[randi][randj-1] = 'O';
+            M[randi][randj-2] = '[';
+            M[randi][randj+1] = 'o';
+            M[randi][randj+2] = ']';
+            M[randi-1][randj] = '_';
+            M[randi-1][randj-1] = '_';
+            M[randi-1][randj-2] = ',';
+            M[randi-1][randj+1] = '_';
+            M[randi-1][randj+2] = ',';
+            M[randi+1][randj] = '_';
+            M[randi+1][randj-1] = ')';
+            M[randi+1][randj-2] = '/';
+            M[randi+1][randj+1] = '_';
+            M[randi+1][randj+2] = ')';
+            M[randi+2][randj] = '-';
+            M[randi+2][randj-1] = '"';
+            M[randi+2][randj-2] = '-';
+            M[randi+2][randj+1] = '-';
+            M[randi+2][randj+2] = '"';
+            M[randi+2][randj+3] = '-';
             break;
         }
+        if(encheu==500){
+                printf("ERRO, por favor insira um numero menor de imagens\n");
+                break;
+            }
     }
 }
-*/
+
+// ,___,
+// [O.o]
+// /)__)
+// -"--"-

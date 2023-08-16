@@ -12,11 +12,12 @@ void monta_1(char M[20][80], int quantidade);
 void monta_2(char M[20][80], int quantidade);
 void monta_3(char M[20][80], int quantidade);
 void monta_4(char M[20][80], int quantidade);
-
+void monta_5(char M[20][80], int quantidade);
+void monta_6(char M[20][80], int quantidade);
 void insere_1(char M[20][80]);
 void insere_2(char M[20][80]);
 void insere_3(char M[20][80]);
 void insere_5(char M[20][80]);
-void monta_5(char M[20][80], int quantidade);
+void insere_6(char M[20][80]);
 void gif_agua(char M[20][80]);
 void exibe_agua(char M[20][80]);
