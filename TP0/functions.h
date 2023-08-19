@@ -14,6 +14,7 @@ void monta_3(char M[20][80], int quantidade);
 void monta_4(char M[20][80], int quantidade);
 void monta_5(char M[20][80], int quantidade);
 void monta_6(char M[20][80], int quantidade);
+void monta_selva(char M[20][80], int quantidade);
 void insere_1(char M[20][80]);
 void insere_2(char M[20][80]);
 void insere_3(char M[20][80]);

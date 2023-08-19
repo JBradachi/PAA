@@ -3,9 +3,9 @@
 int main(){
     char matriz[20][80];
     int numero_de_figuras, selecao, end=1;
-    while (end){
-    printf("PROGRAMA GERADOR DE OBRA DE ARTE:\n=================================\nEscolha o tipo de figura basica a ser usada para criar a obra:\n1 - asterisco simples.\n2 - simbolo de soma com asteriscos.\n3 - letra X com asteriscos.\n4 - figuras aleatorias\n5 - tracos simples\n6 - corujas\n7 - 'GIF' de agua\n");
-    printf("Digite o tipo de figura basica desejada: ");
+    system("clear");
+    printf("PROGRAMA GERADOR DE OBRA DE ARTE:\n=================================\nEscolha o tipo de figura basica a ser usada para criar a obra:\n1 - asterisco simples.\n2 - simbolo de soma com asteriscos.\n3 - letra X com asteriscos.\n4 - figuras aleatorias\n5 - tracos simples\n6 - corujas\n7 - Selva\n8 - 'GIF' de agua\n");
+    printf("Digite o tipo de figura basica desejada: (Ao digitar um numero fora do escopo, será pego um valor aleatório)");
     scanf("%d", &selecao);
     printf("Digite a quantidade de figuras (menor ou igual a zero para aleatorio): ");
     scanf("%d", &numero_de_figuras);
@@ -15,6 +15,10 @@ int main(){
     else if(numero_de_figuras>100){
         numero_de_figuras = 100;
     }
+    if(selecao>8 || selecao < 0){
+        selecao = 1+rand()%7;
+    }
+    while (end){
     switch (selecao){
         case 1:
             system("clear");
@@ -49,11 +53,16 @@ int main(){
             break;
         case 7:
             system("clear");
+            monta_selva(matriz, numero_de_figuras);
+            exibe_matriz(matriz);
+            break;
+        case 8:
+            system("clear");
             gif_agua(matriz);
             exibe_agua(matriz);
             break;
         }
-    printf("Deseja criar mais alguma obra? [S = 1 / N = 0] >>> ");
+    printf("Deseja criar outra obra? [S = 1 / N = 0] >>> ");
     scanf("%d", &end);
     }
     return 0;
