@@ -5,9 +5,9 @@ int main(){
     int numero_de_figuras, selecao, end=1;
     system("clear");
     printf("PROGRAMA GERADOR DE OBRA DE ARTE:\n=================================\nEscolha o tipo de figura basica a ser usada para criar a obra:\n1 - asterisco simples.\n2 - simbolo de soma com asteriscos.\n3 - letra X com asteriscos.\n4 - figuras aleatorias\n5 - tracos simples\n6 - corujas\n7 - Selva\n8 - 'GIF' de agua\n");
-    printf("Digite o tipo de figura basica desejada: (Ao digitar um numero fora do escopo, será pego um valor aleatório)");
+    printf("Digite o tipo de figura basica desejada: (Ao digitar um numero fora do escopo, será pego um valor aleatório) >>> ");
     scanf("%d", &selecao);
-    printf("Digite a quantidade de figuras (menor ou igual a zero para aleatorio): ");
+    printf("Digite a quantidade de figuras: (menor ou igual a zero para aleatorio) >>>  ");
     scanf("%d", &numero_de_figuras);
     if(numero_de_figuras<=0){
         numero_de_figuras = rand()%100;
