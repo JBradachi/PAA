@@ -65,12 +65,12 @@ void monta_1(char M[20][80], int quantidade){
 
 void insere_1(char M[20][80]){
     int randi, randj;
-    srand((unsigned)time(NULL)); // método para gerar um numero pseudo aleatório baseado no  horário do computador
-    while (1){
-        randi = ((rand())%19)+1; // função que gera um numero pseudo aleatório de 1 á 20
-        randj = ((rand())%79)+1; // função que gera um numero pseudo aleatório de 1 á 80
-        if(M[randi][randj] == ' '){
-            M[randi][randj] = '*';
+    srand((unsigned)time(NULL));    // método para gerar um numero pseudo aleatório 
+    while (1){                      // baseado no horário do computador
+        randi = ((rand())%19)+1;    // função que gera um numero pseudo aleatório de 1 á 20
+        randj = ((rand())%79)+1;    // função que gera um numero pseudo aleatório de 1 á 80
+        if(M[randi][randj] == ' '){ 
+            M[randi][randj] = '*';  
             break;
         }
     }
@@ -116,7 +116,9 @@ void insere_3(char M[20][80]){
     while (1){
         randi = ((rand())%19)+1;
         randj = ((rand())%79)+1;
-        if((M[randi][randj] == ' ') && (M[randi-1][randj-1] == ' ') && (M[randi+1][randj-1] == ' ') && (M[randi+1][randj+1] == ' ') && (M[randi-1][randj+1] == ' ')){
+        if((M[randi][randj] == ' ') && (M[randi-1][randj-1] == ' ') && (M[randi+1][randj-1] == ' ')
+         && (M[randi+1][randj+1] == ' ') && (M[randi-1][randj+1] == ' ')){
+            
             M[randi][randj] = '*';
             M[randi-1][randj-1] = '*';
             M[randi+1][randj-1] = '*';
