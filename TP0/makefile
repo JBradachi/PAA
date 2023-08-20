@@ -1,3 +1,3 @@
 all:
-	gcc TP0/main.c TP0/functions.c TP0/functions.h -o e
+	gcc Codigo_TP0/main.c Codigo_TP0/functions.c Codigo_TP0/functions.h -o e
 	./e
