@@ -9,6 +9,7 @@ int main(){
     scanf("%d", &selecao);
     printf("Digite a quantidade de figuras: (menor ou igual a zero para aleatorio) >>>  ");
     scanf("%d", &numero_de_figuras);
+    srand((unsigned)time(NULL));
     if(numero_de_figuras<=0){
         numero_de_figuras = rand()%100;
     }
@@ -62,8 +63,21 @@ int main(){
             exibe_agua(matriz);
             break;
         }
-    printf("Deseja criar outra obra? [S = 1 / N = 0] >>> ");
-    scanf("%d", &end);
+
+        printf("Deseja criar outra obra? [S = 1 / N = 0] >>> ");
+        scanf("%d", &end);
+
+        while(1){
+            if(end == 1 || end == 0){
+                break;
+            }else{
+                printf("Por favor, insira um numero válido (0 || 1) >>> ");
+                scanf("%d", &end);
+            }
+        }
+    
     }
+        
+    
     return 0;
 }

@@ -32,13 +32,15 @@ void exibe_matriz(char M[20][80]){
 
 // mesma função que a "exibe matriz", com a diferença que nesta versão há cores referentes a agua e seus movimentos e uma pequena aparição da lua
 void exibe_agua(char M[20][80]){
-    int i, j;
+    int i, j, ciano;
+    srand((unsigned)time(NULL));
+    ciano = 2+rand()%7;
     for(i=0; i<20; i++){
         for(j=0 ;j<80; j++){
             if(i == 0 || i == 19 || j == 0 || j == 79 || ((i == 2 || i == 7) && (j == 72 || j == 71 || j == 70)) || ((i == 3 || i == 6) && (j == 72 || j == 73 || j == 74 || j == 75)) || ((i == 4 || i == 5) && (j == j == 73 ||j == 74 ||j == 75 ||j == 76 ||j == 77))){
                 printf(WHT "%c", M[i][j]);
             }
-            else if(j%4==0){
+            else if(j%ciano==0){
                 printf(CYN "%c", M[i][j]);
             }
             else{
@@ -185,7 +187,7 @@ void gif_agua(char M[20][80]){
     for(frames = 0; frames<30; frames++){
         system("sleep 0.5");
         inicia_matriz(M);
-        for(k=0; k<130; k++){
+        for(k=0; k<135; k++){
             insere_5(M);
         }
         exibe_agua(M);
@@ -193,6 +195,7 @@ void gif_agua(char M[20][80]){
     }
     system("clear");
 }
+
 void monta_6(char M[20][80], int quantidade){
     int k;
     inicia_matriz(M);
@@ -214,10 +217,12 @@ void insere_6(char M[20][80]){
         randi = ((rand())%19)+1;
         randj = ((rand())%79)+1;
 
-        if((M[randi][randj] == ' ') && (M[randi][randj-1] == ' ') && (M[randi][randj-2] == ' ') && (M[randi][randj+1] == ' ') && (M[randi][randj+2] == ' ') 
-           && (M[randi-1][randj] == ' ') && (M[randi-1][randj-1] == ' ') && (M[randi-1][randj-2] == ' ') && (M[randi-1][randj+1] == ' ') && (M[randi-1][randj+2] == ' ') 
-           && (M[randi+1][randj] == ' ') && (M[randi+1][randj-1] == ' ') && (M[randi+1][randj-2] == ' ') && (M[randi+1][randj+1] == ' ') && (M[randi+1][randj+2] == ' ')
-           && (M[randi+2][randj] == ' ') && (M[randi+2][randj-1] == ' ') && (M[randi+2][randj-2] == ' ') && (M[randi+2][randj+1] == ' ') && (M[randi+2][randj+2] == ' ') && (M[randi+2][randj+3] == ' ')){
+        if((M[randi][randj] == ' ') && (M[randi][randj-1] == ' ') && (M[randi][randj-2] == ' ') && (M[randi][randj+1] == ' ') 
+           && (M[randi][randj+2] == ' ') && (M[randi-1][randj] == ' ') && (M[randi-1][randj-1] == ' ') && (M[randi-1][randj-2] == ' ') 
+           && (M[randi-1][randj+1] == ' ') && (M[randi-1][randj+2] == ' ') && (M[randi+1][randj] == ' ') && (M[randi+1][randj-1] == ' ') 
+           && (M[randi+1][randj-2] == ' ') && (M[randi+1][randj+1] == ' ') && (M[randi+1][randj+2] == ' ') && (M[randi+2][randj] == ' ') 
+           && (M[randi+2][randj-1] == ' ') && (M[randi+2][randj-2] == ' ') && (M[randi+2][randj+1] == ' ') && (M[randi+2][randj+2] == ' ') 
+           && (M[randi+2][randj+3] == ' ')){
 
             M[randi][randj] = '.';
             M[randi][randj-1] = 'O';
